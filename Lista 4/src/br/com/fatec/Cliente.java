@@ -14,14 +14,22 @@ public class Cliente {
 	}
 	
 	public void enviar(String menssagem) throws Exception {
-		LocalTime horario;
-		PrintWriter escritor = new PrintWriter(encaixeCliente.getOutputStream());
-		Scanner scanner = new Scanner(System.in);
+		PrintWriter escritor = new PrintWriter(encaixeCliente.getOutputStream(), true);
 		System.out.println("digite a msg");
+		String msg="";
+		
+		while(!msg.contains("exit")) {
+		msg="";
+		LocalTime horario;
+		Scanner scanner = new Scanner(System.in);
+		
 		horario = LocalTime.now();
-		String msg = scanner.next();
+		msg = scanner.nextLine();
 		msg = msg + "\n" + "horário de envio:" + horario;
 		escritor.write(msg);
+		escritor.flush();
+		}
 		escritor.close();
 	}
+	
 }

@@ -27,7 +27,8 @@ public class Servidor {
 			hora = LocalTime.now();
 			System.out.println(texto + "\n" + "horário chegada: " + hora);
 	
-			buffer.close();
+			buffer.read();
+			
 		}
 	}
 }
