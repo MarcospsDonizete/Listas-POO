@@ -2,6 +2,8 @@ package br.com.fatec;
 
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.time.LocalTime;
+import java.util.Scanner;
 
 public class Cliente {
 	private Socket encaixeCliente;
@@ -12,8 +14,14 @@ public class Cliente {
 	}
 	
 	public void enviar(String menssagem) throws Exception {
+		LocalTime horario;
 		PrintWriter escritor = new PrintWriter(encaixeCliente.getOutputStream());
-		escritor.write(menssagem);
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("digite a msg");
+		horario = LocalTime.now();
+		String msg = scanner.next();
+		msg = msg + "\n" + "horário de envio:" + horario;
+		escritor.write(msg);
 		escritor.close();
 	}
 }
