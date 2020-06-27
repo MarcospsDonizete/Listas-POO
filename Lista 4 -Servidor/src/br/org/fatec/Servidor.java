@@ -16,17 +16,17 @@ public class Servidor {
 
 	public void receber() throws Exception {
 		LocalTime hora;
-		// Thread - ainda falta o processamento paralelo
+		
 		while (true) {
-			Socket conexaoCliente = encaixe.accept(); // aceita a conexão
-			InputStreamReader leitorFluxo = // a entra de dados
-					new InputStreamReader(conexaoCliente.getInputStream());
-			// transformando o fluxo de dados em texto.
+			Socket conexaoCliente = encaixe.accept(); 
+			InputStreamReader leitorFluxo =	new InputStreamReader(conexaoCliente.getInputStream());
+			
 			BufferedReader buffer = new BufferedReader(leitorFluxo);
 			String texto = buffer.readLine();
 			hora = LocalTime.now();
-			System.out.println(texto + "\n" + "horário chegada: " + hora);
-	
+			System.out.println(texto + "  horário chegada: " + hora);
+			
+			
 			buffer.read();
 			
 		}
