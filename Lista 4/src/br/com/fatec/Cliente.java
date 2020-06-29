@@ -8,26 +8,31 @@ import java.time.LocalTime;
 import java.util.Scanner;
 
 public class Cliente {
+	private String ip;
+	private int porta;
 	private Socket encaixeCliente;
 	
 
 	public Cliente(String ip, int porta) throws Exception {
 		System.out.println("Iniciando a conexão com o servidor...");
-		encaixeCliente = new Socket(ip, porta);
+		this.ip=ip;  this.porta=porta;
 	}
 	
 	public void enviar() throws Exception {
-		PrintWriter escritor = new PrintWriter(encaixeCliente.getOutputStream(), true);
 		System.out.println("digite a msg");
 		String msg="";
 		
 		while(!msg.contains("exit")) {
+		encaixeCliente = new Socket(ip, porta);
+		PrintWriter escritor = new PrintWriter(encaixeCliente.getOutputStream(), true);
 		msg="";
 		LocalTime horario;
 		Scanner scanner = new Scanner(System.in);
 		
 		horario = LocalTime.now();
 		msg = scanner.nextLine();
+		scanner.close();
+		
 		String msgEncriptada;
 		
 		msgEncriptada = encriptar(3, msg);
@@ -35,8 +40,9 @@ public class Cliente {
 		msgEncriptada = msgEncriptada + "\n" + "horário de envio:" + horario;
 		escritor.write(msgEncriptada);
 		escritor.flush();
-		}
 		escritor.close();
+		}
+		
 	}
 	
 	public void receber() throws Exception {
