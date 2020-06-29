@@ -31,16 +31,17 @@ public class Cliente {
 		
 		horario = LocalTime.now();
 		msg = scanner.nextLine();
-		scanner.close();
+		
 		
 		String msgEncriptada;
 		
-		msgEncriptada = encriptar(3, msg);
-		
+		//msgEncriptada = encriptar(3, msg);
+		msgEncriptada= msg;
 		msgEncriptada = msgEncriptada + "\n" + "horário de envio:" + horario;
 		escritor.write(msgEncriptada);
 		escritor.flush();
 		escritor.close();
+		
 		}
 		
 	}
