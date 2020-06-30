@@ -11,7 +11,7 @@ public class Cliente {
 	private String ip;
 	private int porta;
 	private Socket encaixeCliente;
-	private Socket testePorta;
+	//private Socket testePorta;
 	 
 
 	public Cliente(String ip) throws Exception {
@@ -24,7 +24,7 @@ public class Cliente {
 		String msg="";
 		
 		while(!msg.contains("exit")) {
-		encaixeCliente = new Socket(ip, porta);
+		
 		PrintWriter escritor = new PrintWriter(encaixeCliente.getOutputStream(), true);
 		msg="";
 		LocalTime horario;
@@ -41,9 +41,10 @@ public class Cliente {
 		msgEncriptada = msgEncriptada + "\n" + "horário de envio:" + horario;
 		escritor.write(msgEncriptada);
 		escritor.flush();
-		escritor.close();
-		
+		//escritor.close();
+		encaixeCliente = new Socket(ip, porta);
 		}
+		
 		
 	}
 	
@@ -89,9 +90,10 @@ public class Cliente {
 			int portas[] = {3000, 3002, 3004, 3006, 3008};
 			
 			for (int i = 0; i < portas.length; i++) {
-				testePorta = new Socket("127.0.0.1",portas[i]);
-				if (testePorta.isConnected()) {
+				encaixeCliente = new Socket("127.0.0.1",portas[i]);
+				if (encaixeCliente.isConnected()) {
 					porta = portas[i];
+					break;
 				}
 			}
 			
