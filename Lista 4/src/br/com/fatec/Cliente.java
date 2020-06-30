@@ -26,7 +26,7 @@ public class Cliente {
 		this.nome = Nome.nextLine();
 		
 		String msg="";
-		System.out.println("digite a msg");
+		System.out.println("Digite a msg");
 		
 		while(!msg.contains("exit")){
 		Scanner scanner = new Scanner(System.in);
@@ -50,8 +50,7 @@ public class Cliente {
 			new InputStreamReader(conexaoCliente.getInputStream());			
 		BufferedReader buffer = new BufferedReader(leitorFluxo);
 		String texto = buffer.readLine();
-		decriptar(3,texto);
-		System.out.println(texto);
+		System.out.println(decriptar(3,texto));
 		buffer.close();
 		}
 	}

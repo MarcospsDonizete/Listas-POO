@@ -26,6 +26,7 @@ public class Servidor {
 			new InputStreamReader(conexaoCliente.getInputStream());			
 		BufferedReader buffer = new BufferedReader(leitorFluxo);
 		String texto = buffer.readLine();
+		System.out.println(texto);
 		enviar(texto);
 		buffer.close();
 		}
