@@ -3,56 +3,57 @@ package br.com.fatec;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.net.ServerSocket;
 import java.net.Socket;
-import java.time.LocalTime;
 import java.util.Scanner;
 
 public class Cliente {
 	private String ip;
 	private int porta;
 	private Socket encaixeCliente;
-	//private Socket testePorta;
+	private ServerSocket encaixe;
+	private String nome;
 	 
 
-	public Cliente(String ip) throws Exception {
-		System.out.println("Iniciando a conexão com o servidor...");
+	public Cliente(String ip,int porta) throws Exception {
 		this.ip=ip;
+		this.porta=porta;		
 	}
 	
 	public void enviar() throws Exception {
-		System.out.println("digite a msg");
+		System.out.println("Digite seu nome:");
+		Scanner Nome = new Scanner(System.in);
+		this.nome = Nome.nextLine();
+		
 		String msg="";
+		System.out.println("digite a msg");
 		
-		while(!msg.contains("exit")) {
-		
-		PrintWriter escritor = new PrintWriter(encaixeCliente.getOutputStream(), true);
-		msg="";
-		LocalTime horario;
+		while(!msg.contains("exit")){
 		Scanner scanner = new Scanner(System.in);
-		
-		horario = LocalTime.now();
 		msg = scanner.nextLine();
-		
-		
-		String msgEncriptada;
-		
-		//msgEncriptada = encriptar(3, msg);
-		msgEncriptada= msg;
-		msgEncriptada = msgEncriptada + "\n" + "horário de envio:" + horario;
-		escritor.write(msgEncriptada);
-		escritor.flush();
-		//escritor.close();
 		encaixeCliente = new Socket(ip, porta);
-		}
-		
-		
+		PrintWriter escritor = 
+				new PrintWriter(encaixeCliente.getOutputStream(),true);
+		String msgEncriptada;
+		msg=nome +"->"+msg;
+		msgEncriptada = encriptar(3, msg);
+		escritor.write( msgEncriptada);
+		escritor.close();
+		}	
 	}
 	
 	public void receber() throws Exception {
-		 BufferedReader entrada = new BufferedReader(new InputStreamReader(encaixeCliente.getInputStream()));
-		 String msgRecebida="";
-		 msgRecebida = decriptar(3, entrada.readLine());
-		 System.out.println(msgRecebida);
+		encaixe = new ServerSocket(porta);
+		while (true) {
+		Socket conexaoCliente = encaixe.accept(); 
+		InputStreamReader leitorFluxo = 
+			new InputStreamReader(conexaoCliente.getInputStream());			
+		BufferedReader buffer = new BufferedReader(leitorFluxo);
+		String texto = buffer.readLine();
+		decriptar(3,texto);
+		System.out.println(texto);
+		buffer.close();
+		}
 	}
 
 	public String encriptar(int chave, String texto){
@@ -82,23 +83,6 @@ public class Cliente {
 		      
 		      return texto.toString();
 	}
-	   
-		
-		public int definirPorta() throws Exception {
-			
-			int porta = 0;
-			int portas[] = {3000, 3002, 3004, 3006, 3008};
-			
-			for (int i = 0; i < portas.length; i++) {
-				encaixeCliente = new Socket("127.0.0.1",portas[i]);
-				if (encaixeCliente.isConnected()) {
-					porta = portas[i];
-					break;
-				}
-			}
-			
-			return porta;
-		};
 		public void setPorta(int porta) {
 			this.porta = porta;
 		}
