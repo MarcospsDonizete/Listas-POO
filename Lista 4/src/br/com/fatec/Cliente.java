@@ -80,5 +80,13 @@ public class Cliente {
 		      
 		      return texto.toString();
 	}
-	}
 	
+
+	private int definir_porta(int porta) {
+		int temp=0;
+		while (wait(1)) {
+			
+		}
+		return porta;
+	};
+}

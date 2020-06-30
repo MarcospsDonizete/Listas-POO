@@ -31,7 +31,6 @@ public class Servidor {
 			String texto = buffer.readLine();
 			hora = LocalTime.now();
 			System.out.println(texto + "\n" + "horário chegada: " + hora);
-	
 			buffer.read();
 			
 		}
