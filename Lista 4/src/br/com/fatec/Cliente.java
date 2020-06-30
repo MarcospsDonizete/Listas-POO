@@ -11,11 +11,12 @@ public class Cliente {
 	private String ip;
 	private int porta;
 	private Socket encaixeCliente;
-	
+	private Socket testePorta;
+	 
 
-	public Cliente(String ip, int porta) throws Exception {
+	public Cliente(String ip) throws Exception {
 		System.out.println("Iniciando a conexão com o servidor...");
-		this.ip=ip;  this.porta=porta;
+		this.ip=ip;
 	}
 	
 	public void enviar() throws Exception {
@@ -80,13 +81,23 @@ public class Cliente {
 		      
 		      return texto.toString();
 	}
-	
-
-	private int definir_porta(int porta) {
-		int temp=0;
-		while (wait(1)) {
+	   
+		
+		public int definirPorta() throws Exception {
 			
+			int porta = 0;
+			int portas[] = {3000, 3002, 3004, 3006, 3008};
+			
+			for (int i = 0; i < portas.length; i++) {
+				testePorta = new Socket("127.0.0.1",portas[i]);
+				if (testePorta.isConnected()) {
+					porta = portas[i];
+				}
+			}
+			
+			return porta;
+		};
+		public void setPorta(int porta) {
+			this.porta = porta;
 		}
-		return porta;
-	};
 }
