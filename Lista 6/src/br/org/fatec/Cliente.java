@@ -3,11 +3,11 @@ package br.org.fatec;
 import java.util.ArrayList;
 
 public class Cliente {
-	public String nome;
-	public String telefone;
-	public String cpf;
-	public String endereco;
-	public ArrayList<Animais> animais = new ArrayList<Animais>();
+	private String nome;
+	private String telefone;
+	private String cpf;
+	private String endereco;
+	private ArrayList<Animais> animais = new ArrayList<Animais>();
 	
 	public ArrayList<Animais> getAnimais() {
 		return animais;

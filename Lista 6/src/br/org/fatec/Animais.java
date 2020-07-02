@@ -1,9 +1,11 @@
 package br.org.fatec;
 
 public class Animais {
-	public String raca;
-	public String genero;
-	public int idade;
+	private String raca;
+	private String genero;
+	private int idade;
+	private int id;
+
 	
 	public String getRaca() {
 		return raca;
@@ -24,6 +26,12 @@ public class Animais {
 		this.idade = idade;
 	}
 	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
@@ -32,7 +40,8 @@ public class Animais {
 			"========" + 
 			"Raça: " + this.getRaca() + 
 			"Gênero: " + this.getGenero() + 
-			"Idade: " + this.getIdade();
+			"Idade: " + this.getIdade() +
+			"ID: " + this.getId();
 		return perfilAnimal;
 	}
 
