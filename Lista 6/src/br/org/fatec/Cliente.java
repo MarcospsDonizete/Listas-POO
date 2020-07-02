@@ -40,5 +40,18 @@ public class Cliente {
 		this.endereco = endereco;
 	}
 	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		String perfilCliente;
+		perfilCliente =
+				"========" + 
+				"Nome: " + this.getNome() + 
+				"Telefone: " + this.getTelefone() +
+				"CPF: " + this.getCpf() + 
+				"Endereco: " + this.getEndereco() + 
+				"Quantidade de Pets: " + this.getAnimais().size();
+		return perfilCliente;
+	}
 
 }
