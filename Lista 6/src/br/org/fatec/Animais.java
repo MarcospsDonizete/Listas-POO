@@ -24,5 +24,16 @@ public class Animais {
 		this.idade = idade;
 	}
 	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		String perfilAnimal;
+		perfilAnimal = 
+			"========" + 
+			"Raça: " + this.getRaca() + 
+			"Gênero: " + this.getGenero() + 
+			"Idade: " + this.getIdade();
+		return perfilAnimal;
+	}
 
 }
