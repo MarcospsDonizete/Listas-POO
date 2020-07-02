@@ -10,13 +10,13 @@ public class Servidor {
 	private ServerSocket encaixe;
 	private Socket encaixeCliente;
 	private String ip;
-	private int porta;
+	
 
 	public Servidor(int porta) throws Exception {
 		System.out.println("Iniciando servidor...");
 		encaixe = new ServerSocket(porta);
 		this.ip="127.0.0.1";
-		this.porta=3001;
+		
 	}
 
 	public void receber() throws Exception {
@@ -27,12 +27,13 @@ public class Servidor {
 		BufferedReader buffer = new BufferedReader(leitorFluxo);
 		String texto = buffer.readLine();
 		System.out.println(texto);
-		enviar(texto);
+		enviar(texto,3001);
+		enviar(texto,3002);
 		buffer.close();
 		}
 	}
 	
-	public void enviar(String msg) throws Exception {
+	public void enviar(String msg,int porta) throws Exception {
 		encaixeCliente = new Socket(ip, porta);
 		PrintWriter escritor = new PrintWriter(encaixeCliente.getOutputStream(), true);
 		escritor.write(msg);
