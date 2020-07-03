@@ -1,11 +1,21 @@
 package br.org.fatec;
 
 public class Profissional {
-	public String nome;
-	public String telefone;
-	public String cpf;
-	public String endereco;
 	
+	private int id;
+	private String nome;
+	private String telefone;
+	private String cpf;
+	private String endereco;
+	
+	
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getNome() {
 		return nome;
 	}
@@ -29,6 +39,18 @@ public class Profissional {
 	}
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
+	}
+	
+	@Override
+	public String toString() {
+		String perfilProfissional;
+		perfilProfissional = 
+				"========" + 
+				"Nome: " + this.getNome() + 
+				"Telefone: " + this.getTelefone() + 
+				"CPF: " + this.getCpf() + 
+				"Endereco: " + this.getEndereco();
+		return perfilProfissional;
 	}
 	
 
