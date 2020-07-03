@@ -3,9 +3,12 @@ Listas de exercicios propostos pelo professor Gerson, FATEC São José dos Campo
 
 ## Contribuidores
 
--Marcos Paulo Simões Donizete
+-Marcos Paulo Simões Donizete 
+
 -João Victor Simão Nanzer - https://github.com/Joao1512
+
 -Renato Junqueira Pedras Passos - https://github.com/Renato-Passos
+
 -Wellington Felipe de Oliveira - https://github.com/WellFel91
 
 ## Agrecimentos Especiais
