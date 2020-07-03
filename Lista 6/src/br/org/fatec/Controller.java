@@ -3,7 +3,6 @@ package br.org.fatec;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-
 public class Controller {
 	int idAnimal = 0;
 	int idCliente = 0;
@@ -20,9 +19,11 @@ public class Controller {
         scan = new Scanner(System.in);
         execute = true;
         System.out.println("\nBem-vindo!");
+        GerarPovo();
 
         while (execute) {
             String option = mainMenu();
+            
             
             //Novo Cadastro
             if (option.equalsIgnoreCase("1")) {
@@ -365,7 +366,388 @@ public class Controller {
 		return scan.nextInt();
 	}
 
-    
+	public void GerarPovo(){
+		Cliente c = new Cliente();
+		Animais a1 = new Animais();
+		Animais a2 = new Animais();
+		Animais a3 = new Animais();
+		Animais a4 = new Animais();
+		Animais a5 = new Animais();
+		ArrayList<Animais> list = new ArrayList <Animais>();
+		
+		c.setNome("Robson Silva Tche");
+		c.setTelefone("3933-1687");
+		c.setEndereco("Rua das Bahianas N 60");
+		c.setCpf("490.890.168-31");
+		
+		a1.setGenero("Feminino");
+		a1.setId(1);
+		a1.setIdade(3);
+		a1.setRaca("Poodle");
+		
+		a2.setGenero("Masculino");
+		a2.setId(2);
+		a2.setIdade(5);
+		a2.setRaca("Pastor-Alemão");
+		
+		a3.setGenero("Feminino");
+		a3.setId(3);
+		a3.setIdade(5);
+		a3.setRaca("Border Collie");
+		
+		a4.setGenero("Feminino");
+		a4.setId(4);
+		a4.setIdade(1);
+		a4.setRaca("Beagle");
+
+		a5.setGenero("Masculino");
+		a5.setId(5);
+		a5.setIdade(2);
+		a5.setRaca("Poodle");
+		
+		list.add(a1);
+		list.add(a2);
+		list.add(a3);
+		list.add(a4);
+		list.add(a5);
+		
+		TodosAnimais.add(a1);
+		TodosAnimais.add(a2);
+		TodosAnimais.add(a3);
+		TodosAnimais.add(a4);
+		TodosAnimais.add(a5);
+		
+		ListaClientes.add(c);
+		
+		c.setAnimais(list);
+		
+		c = new Cliente();
+		list = new ArrayList <Animais>();
+		
+		c.setNome("Tony Stark");
+		c.setTelefone("1299744-2245");
+		c.setEndereco("10880, Malibu Point, 90265");
+		c.setCpf("350.678.890-x");
+		
+		a1.setGenero("Masculino");
+		a1.setId(6);
+		a1.setIdade(9);
+		a1.setRaca("Boxer");
+		
+		a2.setGenero("Masculino");
+		a2.setId(7);
+		a2.setIdade(6);
+		a2.setRaca("Pastor-Alemão");
+		
+		a3.setGenero("Feminino");
+		a3.setId(8);
+		a3.setIdade(3);
+		a3.setRaca("Chow Chow");
+		
+		list.add(a1);
+		list.add(a2);
+		list.add(a3);
+		
+		TodosAnimais.add(a1);
+		TodosAnimais.add(a2);
+		TodosAnimais.add(a3);
+		ListaClientes.add(c);
+		
+		c.setAnimais(list);
+		
+		c = new Cliente();
+		list = new ArrayList <Animais>();
+		
+		c.setNome("Bruce Wayne");
+		c.setTelefone("911");
+		c.setEndereco("Gotham City");
+		c.setCpf("760.182.450-x1");
+		
+		a1.setGenero("Feminino");
+		a1.setId(9);
+		a1.setIdade(3);
+		a1.setRaca("Poodle");
+		
+		a2.setGenero("Masculino");
+		a2.setId(10);
+		a2.setIdade(5);
+		a2.setRaca("Poodle");
+		
+		a3.setGenero("Feminino");
+		a3.setId(11);
+		a3.setIdade(5);
+		a3.setRaca("Pastor-Alemão");
+		
+		a4.setGenero("Feminino");
+		a4.setId(12);
+		a4.setIdade(1);
+		a4.setRaca("Pastor-Alemão");
+		
+		list.add(a1);
+		list.add(a2);
+		list.add(a3);
+		list.add(a4);
+		
+		TodosAnimais.add(a1);
+		TodosAnimais.add(a2);
+		TodosAnimais.add(a3);
+		TodosAnimais.add(a4);
+		ListaClientes.add(c);
+		
+		c.setAnimais(list);
+		
+		c = new Cliente();
+		list = new ArrayList <Animais>();
+		
+		c.setNome("Bruce Banner");
+		c.setTelefone("1 4145-1289");
+		c.setEndereco("Rua Verdureiras N 144");
+		c.setCpf("15.401.320-1");
+		
+		a1.setGenero("Feminino");
+		a1.setId(12);
+		a1.setIdade(15);
+		a1.setRaca("Beagle");
+		
+		list.add(a1);
+		TodosAnimais.add(a1);
+		ListaClientes.add(c);
+		
+		c.setAnimais(list);
+		c = new Cliente();
+		list = new ArrayList <Animais>();
+		
+		c.setNome("Carol Danvers");
+		c.setTelefone("12 98287-1519");
+		c.setEndereco("Avenida Brasil N 1500");
+		c.setCpf("67.789.192-0");
+		
+		a1.setGenero("Feminino");
+		a1.setId(13);
+		a1.setIdade(9);
+		a1.setRaca("Pastor-Alemão");
+		
+		a2.setGenero("Masculino");
+		a2.setId(14);
+		a2.setIdade(8);
+		a2.setRaca("Chow Chow");
+		
+		a3.setGenero("Feminino");
+		a3.setId(15);
+		a3.setIdade(12);
+		a3.setRaca("Chihuahua");
+			
+		list.add(a1);
+		list.add(a2);
+		list.add(a3);
+		
+		TodosAnimais.add(a1);
+		TodosAnimais.add(a2);
+		TodosAnimais.add(a3);
+		ListaClientes.add(c);
+		
+		c.setAnimais(list);
+		c = new Cliente();
+		list = new ArrayList <Animais>();
+		
+		c.setNome("Betina da Empiricus");
+		c.setTelefone("4003-3118");
+		c.setEndereco("Rua dos Milhonários N 167");
+		c.setCpf("89.671.590-0");
+		
+		a1.setGenero("Masculino");
+		a1.setId(16);
+		a1.setIdade(3);
+		a1.setRaca("Pinscher");
+		
+		a2.setGenero("Masculino");
+		a2.setId(17);
+		a2.setIdade(5);
+		a2.setRaca("Pinscher");
+		
+		a3.setGenero("Feminino");
+		a3.setId(18);
+		a3.setIdade(5);
+		a3.setRaca("Golden Retriever");
+				
+		list.add(a1);
+		list.add(a2);
+		list.add(a3);
+		
+		TodosAnimais.add(a1);
+		TodosAnimais.add(a2);
+		TodosAnimais.add(a3);
+		
+		ListaClientes.add(c);
+		
+		c.setAnimais(list);
+		c = new Cliente();
+		list = new ArrayList <Animais>();
+		
+		c.setNome("Cleiton Roberto Araujo");
+		c.setTelefone("12 3354-1890");
+		c.setEndereco("Avenida dos Soldados n 1893");
+		c.setCpf("490.890.168-31");
+		
+		a1.setGenero("Masculino");
+		a1.setId(19);
+		a1.setIdade(10);
+		a1.setRaca("Labrador");
+		
+		a2.setGenero("Masculino");
+		a2.setId(20);
+		a2.setIdade(4);
+		a2.setRaca("Labrador");
+		
+		a3.setGenero("Feminino");
+		a3.setId(21);
+		a3.setIdade(5);
+		a3.setRaca("Border Collie");
+		
+		a4.setGenero("Feminino");
+		a4.setId(22);
+		a4.setIdade(12);
+		a4.setRaca("Beagle");
+
+		a5.setGenero("Masculino");
+		a5.setId(23);
+		a5.setIdade(7);
+		a5.setRaca("Chihuahua");
+		
+		list.add(a1);
+		list.add(a2);
+		list.add(a3);
+		list.add(a4);
+		list.add(a5);
+		
+		TodosAnimais.add(a1);
+		TodosAnimais.add(a2);
+		TodosAnimais.add(a3);
+		TodosAnimais.add(a4);
+		TodosAnimais.add(a5);
+		
+		ListaClientes.add(c);
+		
+		c.setAnimais(list);
+		c = new Cliente();
+		list = new ArrayList <Animais>();
+		
+		c.setNome("Clarissélia Bezerra Cabrita");
+		c.setTelefone("12 98819-6789");
+		c.setEndereco("Beco da Quebrada N 190");
+		c.setCpf("19.911.123-x9");
+		
+		a1.setGenero("Feminino");
+		a1.setId(24);
+		a1.setIdade(14);
+		a1.setRaca("Pinscher");
+		
+		a2.setGenero("Masculino");
+		a2.setId(25);
+		a2.setIdade(10);
+		a2.setRaca("Pinscher");
+		
+		a3.setGenero("Feminino");
+		a3.setId(26);
+		a3.setIdade(9);
+		a3.setRaca("Pastor-Alemão");
+		
+		a4.setGenero("Feminino");
+		a4.setId(27);
+		a4.setIdade(13);
+		a4.setRaca("Beagle");
+
+		a5.setGenero("Masculino");
+		a5.setId(28);
+		a5.setIdade(2);
+		a5.setRaca("Labrador");
+		
+		list.add(a1);
+		list.add(a2);
+		list.add(a3);
+		list.add(a4);
+		list.add(a5);
+		
+		TodosAnimais.add(a1);
+		TodosAnimais.add(a2);
+		TodosAnimais.add(a3);
+		TodosAnimais.add(a4);
+		TodosAnimais.add(a5);
+		
+		ListaClientes.add(c);
+		
+		c.setAnimais(list);
+		c = new Cliente();
+		list = new ArrayList <Animais>();		
+		
+		c.setNome("Bill Gates");
+		c.setTelefone("(11) 4706 0900");
+		c.setEndereco("Rua dos Programadores N 42");
+		c.setCpf("420.167.829-1");
+		
+		a1.setGenero("Feminino");
+		a1.setId(29);
+		a1.setIdade(3);
+		a1.setRaca("Beagle");
+		
+		a2.setGenero("Masculino");
+		a2.setId(30);
+		a2.setIdade(2);
+		a2.setRaca("Beagle");
+		
+		a3.setGenero("Feminino");
+		a3.setId(31);
+		a3.setIdade(1);
+		a3.setRaca("Border Collie");
+		
+		list.add(a1);
+		list.add(a2);
+		list.add(a3);
+		
+		TodosAnimais.add(a1);
+		TodosAnimais.add(a2);
+		TodosAnimais.add(a3);
+
+		ListaClientes.add(c);
+		
+		c.setAnimais(list);
+		c = new Cliente();
+		list = new ArrayList <Animais>();
+		
+		c.setNome("Sheldon Cooper");
+		c.setTelefone("1 4242-0001");
+		c.setEndereco("Rua das Cordas N 42");
+		c.setCpf("980.192.124-x");
+		
+		a1.setGenero("Feminino");
+		a1.setId(32);
+		a1.setIdade(1);
+		a1.setRaca("Labrador");
+		
+		a2.setGenero("Masculino");
+		a2.setId(33);
+		a2.setIdade(2);
+		a2.setRaca("Golden Retriever");
+		
+		a3.setGenero("Feminino");
+		a3.setId(34);
+		a3.setIdade(3);
+		a3.setRaca("Chihuahua");
+				
+		list.add(a1);
+		list.add(a2);
+		list.add(a3);
+		
+		TodosAnimais.add(a1);
+		TodosAnimais.add(a2);
+		TodosAnimais.add(a3);
+
+		c.setAnimais(list);
+		
+		ListaClientes.add(c);
+		
+		
+	}
 }
 
 
