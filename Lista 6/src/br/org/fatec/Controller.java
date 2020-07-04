@@ -89,6 +89,24 @@ public class Controller {
                 }
 
             }
+            
+            //Ranking
+            if (option.equalsIgnoreCase("3")) {
+            	String list = menuRanking();
+            		 //Raking por Gênero
+                     if (list.equalsIgnoreCase("1")) {
+                    	 RankingGenero(TodosAnimais);
+                     }
+                     //Raking por Raça
+                     else if (list.equalsIgnoreCase("2")) {
+                    	 RankingRaca(TodosAnimais);
+                     }
+                     //SAIR
+                     else {
+                    	 System.out.println("Favor digitar um número válido!!");
+                     }
+                
+            }
         }
     }
 
@@ -96,7 +114,8 @@ public class Controller {
         System.out.println("\nSelecione a opção: ");
         System.out.println("1 - Novo cadastro");
         System.out.println("2 - Listar Cadastros");
-        System.out.println("3 - Voltar");
+        System.out.println("3 - Rankings");
+        System.out.println("4 - Voltar");
         return scan.nextLine();
     }
 
@@ -110,6 +129,13 @@ public class Controller {
         System.out.println("6 - Remover Profissional");
         System.out.println("7 - Remover Atendimento");
         System.out.println("8 - Sair");
+        return scan.nextLine();
+    }
+    
+    public String menuRanking() {
+        System.out.println("1 - Ranking por Gênero");
+        System.out.println("2 - Ranking por Raça");
+        System.out.println("3 - Sair");
         return scan.nextLine();
     }
     
