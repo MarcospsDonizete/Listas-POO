@@ -950,7 +950,7 @@ public class Controller {
 				
 			}
 			else {
-				animais.put(animal.getRaca(), 0);
+				animais.put(animal.getRaca(), 1);
 				
 			}
 		}
