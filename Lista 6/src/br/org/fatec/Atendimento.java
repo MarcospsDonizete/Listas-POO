@@ -46,9 +46,9 @@ public class Atendimento {
 		perfilAtendimento = 
 				"========" + "\n" +
 				"ID do Atndimento: " + this.getId() + 
-				"\n" + " Cliente: " + this.getCliente().getNome() + "ID - " + this.getCliente().getId() + 
+				"\n" + " Cliente: " + this.getCliente().getNome() + " ID - " + this.getCliente().getId() + 
 				"\n" + "Animal: " + this.getAnimal().getId() + 
-				"\n" + "PetSister: " + this.getProfissional().getNome() + "ID = " + this.getProfissional().getId();
+				"\n" + "PetSister: " + this.getProfissional().getNome() + " ID = " + this.getProfissional().getId();
 		
 		return perfilAtendimento;
 	}

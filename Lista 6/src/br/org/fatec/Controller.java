@@ -3,6 +3,7 @@ package br.org.fatec;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class Controller {
@@ -919,7 +920,7 @@ public class Controller {
 		ListaAtendimentos.add(at5);
 	}
 	
-	public String RankingGenero(ArrayList<Animais> lista) {
+	public void RankingGenero(ArrayList<Animais> lista) {
 		int contF = 0, contM = 0;
 		String resp;
 		
@@ -935,25 +936,30 @@ public class Controller {
 			resp="Masculino";
 		else
 			resp="Feminino";
-		return resp;
+		
+		System.out.println("O gênero mais frequente atual é: "+resp);
 		
 	}
 	
-	public String RankingRaca(ArrayList<Animais> lista) {
+	public void RankingRaca(ArrayList<Animais> lista) {
 		Map<String,Integer> animais = new HashMap<String,Integer>();		
 		
 		for (Animais animal : lista) {
 			if(animais.containsKey(animal.getRaca())) {
-				animais.replace(animal.getRaca(), animais.get(animal.getRaca()+1));
+				animais.replace(animal.getRaca(), (animais.get(animal.getRaca()).intValue()+1));
+				
 			}
 			else {
-				animais.put(animal.getRaca(), 0);	
+				animais.put(animal.getRaca(), 0);
+				
 			}
 		}
+		System.out.println("Raças mais queridas");
 		
-		
-		return null;
-		
+		animais.entrySet().stream()
+        .sorted(Map.Entry.<String, Integer>comparingByValue().reversed()) 
+        .limit(10) 
+        .forEach(System.out::println);
 	}
 }
 
