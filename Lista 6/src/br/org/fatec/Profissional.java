@@ -45,11 +45,11 @@ public class Profissional {
 	public String toString() {
 		String perfilProfissional;
 		perfilProfissional = 
-				"========" + 
-				"Nome: " + this.getNome() + 
-				"Telefone: " + this.getTelefone() + 
-				"CPF: " + this.getCpf() + 
-				"Endereco: " + this.getEndereco();
+				"========" + "\n" +  
+						"\n" + " Nome: " + this.getNome() + 
+						"\n" + " Telefone: " + this.getTelefone() + 
+						"\n" + " CPF: " + this.getCpf() + 
+						"\n" + " Endereco: " + this.getEndereco();
 		return perfilProfissional;
 	}
 	

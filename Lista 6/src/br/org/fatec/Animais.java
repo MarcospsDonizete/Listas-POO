@@ -37,11 +37,11 @@ public class Animais {
 		// TODO Auto-generated method stub
 		String perfilAnimal;
 		perfilAnimal = 
-			"========" + 
-			"Raça: " + this.getRaca() + 
-			"Gênero: " + this.getGenero() + 
-			"Idade: " + this.getIdade() +
-			"ID: " + this.getId();
+			"========" + "\n" + 
+					"\n" + " Raça: " + this.getRaca() + 
+					"\n" + " Gênero: " + this.getGenero() + 
+					"\n" + " Idade: " + this.getIdade() +
+					"\n" + " ID: " + this.getId();
 		return perfilAnimal;
 	}
 

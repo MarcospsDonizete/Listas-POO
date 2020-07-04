@@ -40,5 +40,16 @@ public class Atendimento {
 		this.profissional = profissional;
 	}
 	
-	
+	@Override
+	public String toString() {
+		String perfilAtendimento;
+		perfilAtendimento = 
+				"========" + "\n" +
+				"ID do Atndimento: " + this.getId() + 
+				"\n" + " Cliente: " + this.getCliente().getNome() + "ID - " + this.getCliente().getId() + 
+				"\n" + "Animal: " + this.getAnimal().getId() + 
+				"\n" + "PetSister: " + this.getProfissional().getNome() + "ID = " + this.getProfissional().getId();
+		
+		return perfilAtendimento;
+	}
 }
