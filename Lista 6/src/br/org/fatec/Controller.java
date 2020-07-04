@@ -2,12 +2,14 @@ package br.org.fatec;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Controller {
-	int idAnimal = 0;
-	int idCliente = 0;
-	int idProfissional = 0;
-	int idAtendimento = 0;
+	int idAnimal = 35;
+	int idCliente = 11;
+	int idProfissional = 6;
+	int idAtendimento = 7;
     private Scanner scan;
     private boolean execute;
     public ArrayList<Cliente> ListaClientes = new ArrayList<Cliente>();
@@ -116,7 +118,7 @@ public class Controller {
         System.out.println("1 - Cadastrar Cliente");
         System.out.println("2 - Cadastrar Animal");
         System.out.println("3 - Cadastrar Profissional");
-        System.out.println("5 - Cadastrar Atendimento");
+        System.out.println("4 - Cadastrar Atendimento");
         System.out.println("5 - Sair");
         return scan.nextLine();
     }
@@ -130,29 +132,31 @@ public class Controller {
     	System.out.println("Id do Cliente: ");
     	int idClienteAtendimento = scan.nextInt();
     	
-    	System.out.println("Id do animal");
-    	int idAnimalAtendimento = scan.nextInt();
-    	
-    	System.out.println("Id do Petsister: ");
-    	int idProfissionalAtendimento = scan.nextInt();
-    	
     	for(Cliente cliente: ListaClientes) {
     		if (cliente.getId() == idClienteAtendimento ) {
     			clienteAtendimento = cliente;
     		}
     	}
+    	System.out.println(clienteAtendimento);
     	
+    	System.out.println("Id do animal");
+    	int idAnimalAtendimento = scan.nextInt();
     	for (Animais animal: TodosAnimais) {
     		if (animal.getId() == idAnimalAtendimento) {
     			animalAtendimento = animal;
     		}
     	}
+    	System.out.println(animalAtendimento);
+    	
+    	System.out.println("Id do Petsister: ");
+    	int idProfissionalAtendimento = scan.nextInt();
     	
     	for (Profissional profissional : ListaProfissionais) {
     		if (profissional.getId() == idProfissionalAtendimento) {
     			profissionalAtendimento = profissional;
     		}
     	}
+    	System.out.println(profissionalAtendimento);
     	
     	if (clienteAtendimento != null && animalAtendimento != null && profissionalAtendimento != null) {
     		Atendimento atendimento = new Atendimento(clienteAtendimento, animalAtendimento, profissionalAtendimento);
@@ -365,8 +369,11 @@ public class Controller {
 		System.out.println(string);
 		return scan.nextInt();
 	}
-
-	public void GerarPovo(){
+	
+	
+	
+	public void GerarPovo(){ // gerando base de testes
+		Profissional p = new Profissional();
 		Cliente c = new Cliente();
 		Animais a1 = new Animais();
 		Animais a2 = new Animais();
@@ -375,10 +382,13 @@ public class Controller {
 		Animais a5 = new Animais();
 		ArrayList<Animais> list = new ArrayList <Animais>();
 		
+		// Gerando lista de clientes
+		
 		c.setNome("Robson Silva Tche");
 		c.setTelefone("3933-1687");
 		c.setEndereco("Rua das Bahianas N 60");
 		c.setCpf("490.890.168-31");
+		c.setId(1);
 		
 		a1.setGenero("Feminino");
 		a1.setId(1);
@@ -421,13 +431,19 @@ public class Controller {
 		
 		c.setAnimais(list);
 		
-		c = new Cliente();
+		Cliente c1 = new Cliente();
 		list = new ArrayList <Animais>();
+		a1 = new Animais();
+		a2 = new Animais();
+		a3 = new Animais();
+		a4 = new Animais();
+		a5 = new Animais();
 		
-		c.setNome("Tony Stark");
-		c.setTelefone("1299744-2245");
-		c.setEndereco("10880, Malibu Point, 90265");
-		c.setCpf("350.678.890-x");
+		c1.setNome("Tony Stark");
+		c1.setTelefone("1299744-2245");
+		c1.setEndereco("10880, Malibu Point, 90265");
+		c1.setCpf("350.678.890-x");
+		c1.setId(2);
 		
 		a1.setGenero("Masculino");
 		a1.setId(6);
@@ -451,17 +467,23 @@ public class Controller {
 		TodosAnimais.add(a1);
 		TodosAnimais.add(a2);
 		TodosAnimais.add(a3);
-		ListaClientes.add(c);
+		ListaClientes.add(c1);
 		
-		c.setAnimais(list);
+		c1.setAnimais(list);
 		
-		c = new Cliente();
+		Cliente c2 = new Cliente();
 		list = new ArrayList <Animais>();
+		a1 = new Animais();
+		a2 = new Animais();
+		a3 = new Animais();
+		a4 = new Animais();
+		a5 = new Animais();
 		
-		c.setNome("Bruce Wayne");
-		c.setTelefone("911");
-		c.setEndereco("Gotham City");
-		c.setCpf("760.182.450-x1");
+		c2.setNome("Bruce Wayne");
+		c2.setTelefone("911");
+		c2.setEndereco("Gotham City");
+		c2.setCpf("760.182.450-x1");
+		c2.setId(3);
 		
 		a1.setGenero("Feminino");
 		a1.setId(9);
@@ -492,17 +514,23 @@ public class Controller {
 		TodosAnimais.add(a2);
 		TodosAnimais.add(a3);
 		TodosAnimais.add(a4);
-		ListaClientes.add(c);
+		ListaClientes.add(c2);
 		
-		c.setAnimais(list);
+		c2.setAnimais(list);
 		
-		c = new Cliente();
+		Cliente c3 = new Cliente();
 		list = new ArrayList <Animais>();
+		a1 = new Animais();
+		a2 = new Animais();
+		a3 = new Animais();
+		a4 = new Animais();
+		a5 = new Animais();
 		
-		c.setNome("Bruce Banner");
-		c.setTelefone("1 4145-1289");
-		c.setEndereco("Rua Verdureiras N 144");
-		c.setCpf("15.401.320-1");
+		c3.setNome("Bruce Banner");
+		c3.setTelefone("1 4145-1289");
+		c3.setEndereco("Rua Verdureiras N 144");
+		c3.setCpf("15.401.320-1");
+		c3.setId(4);
 		
 		a1.setGenero("Feminino");
 		a1.setId(12);
@@ -511,16 +539,23 @@ public class Controller {
 		
 		list.add(a1);
 		TodosAnimais.add(a1);
-		ListaClientes.add(c);
+		ListaClientes.add(c3);
 		
-		c.setAnimais(list);
-		c = new Cliente();
+		c3.setAnimais(list);
+		
+		Cliente c4 = new Cliente();
 		list = new ArrayList <Animais>();
+		a1 = new Animais();
+		a2 = new Animais();
+		a3 = new Animais();
+		a4 = new Animais();
+		a5 = new Animais();
 		
-		c.setNome("Carol Danvers");
-		c.setTelefone("12 98287-1519");
-		c.setEndereco("Avenida Brasil N 1500");
-		c.setCpf("67.789.192-0");
+		c4.setNome("Carol Danvers");
+		c4.setTelefone("12 98287-1519");
+		c4.setEndereco("Avenida Brasil N 1500");
+		c4.setCpf("67.789.192-0");
+		c4.setId(5);
 		
 		a1.setGenero("Feminino");
 		a1.setId(13);
@@ -544,16 +579,23 @@ public class Controller {
 		TodosAnimais.add(a1);
 		TodosAnimais.add(a2);
 		TodosAnimais.add(a3);
-		ListaClientes.add(c);
+		ListaClientes.add(c4);
 		
-		c.setAnimais(list);
-		c = new Cliente();
+		c4.setAnimais(list);
+		
+		Cliente c5 = new Cliente();
 		list = new ArrayList <Animais>();
+		a1 = new Animais();
+		a2 = new Animais();
+		a3 = new Animais();
+		a4 = new Animais();
+		a5 = new Animais();
 		
-		c.setNome("Betina da Empiricus");
-		c.setTelefone("4003-3118");
-		c.setEndereco("Rua dos Milhonários N 167");
-		c.setCpf("89.671.590-0");
+		c5.setNome("Betina da Empiricus");
+		c5.setTelefone("4003-3118");
+		c5.setEndereco("Rua dos Milhonários N 167");
+		c5.setCpf("89.671.590-0");
+		c5.setId(6);
 		
 		a1.setGenero("Masculino");
 		a1.setId(16);
@@ -578,16 +620,23 @@ public class Controller {
 		TodosAnimais.add(a2);
 		TodosAnimais.add(a3);
 		
-		ListaClientes.add(c);
+		ListaClientes.add(c5);
 		
-		c.setAnimais(list);
-		c = new Cliente();
+		c5.setAnimais(list);
+		
+		Cliente c6 = new Cliente();
 		list = new ArrayList <Animais>();
+		a1 = new Animais();
+		a2 = new Animais();
+		a3 = new Animais();
+		a4 = new Animais();
+		a5 = new Animais();
 		
-		c.setNome("Cleiton Roberto Araujo");
-		c.setTelefone("12 3354-1890");
-		c.setEndereco("Avenida dos Soldados n 1893");
-		c.setCpf("490.890.168-31");
+		c6.setNome("Cleiton Roberto Araujo");
+		c6.setTelefone("12 3354-1890");
+		c6.setEndereco("Avenida dos Soldados n 1893");
+		c6.setCpf("490.890.168-31");
+		c6.setId(7);
 		
 		a1.setGenero("Masculino");
 		a1.setId(19);
@@ -626,16 +675,23 @@ public class Controller {
 		TodosAnimais.add(a4);
 		TodosAnimais.add(a5);
 		
-		ListaClientes.add(c);
+		ListaClientes.add(c6);
 		
-		c.setAnimais(list);
-		c = new Cliente();
+		c6.setAnimais(list);
+		
+		Cliente c7 = new Cliente();
 		list = new ArrayList <Animais>();
+		a1 = new Animais();
+		a2 = new Animais();
+		a3 = new Animais();
+		a4 = new Animais();
+		a5 = new Animais();
 		
-		c.setNome("Clarissélia Bezerra Cabrita");
-		c.setTelefone("12 98819-6789");
-		c.setEndereco("Beco da Quebrada N 190");
-		c.setCpf("19.911.123-x9");
+		c7.setNome("Clarissélia Bezerra Cabrita");
+		c7.setTelefone("12 98819-6789");
+		c7.setEndereco("Beco da Quebrada N 190");
+		c7.setCpf("19.911.123-x9");
+		c7.setId(8);
 		
 		a1.setGenero("Feminino");
 		a1.setId(24);
@@ -674,16 +730,22 @@ public class Controller {
 		TodosAnimais.add(a4);
 		TodosAnimais.add(a5);
 		
-		ListaClientes.add(c);
+		ListaClientes.add(c7);
 		
-		c.setAnimais(list);
-		c = new Cliente();
-		list = new ArrayList <Animais>();		
+		c7.setAnimais(list);
+		Cliente c8 = new Cliente();
+		list = new ArrayList <Animais>();
+		a1 = new Animais();
+		a2 = new Animais();
+		a3 = new Animais();
+		a4 = new Animais();
+		a5 = new Animais();
 		
-		c.setNome("Bill Gates");
-		c.setTelefone("(11) 4706 0900");
-		c.setEndereco("Rua dos Programadores N 42");
-		c.setCpf("420.167.829-1");
+		c8.setNome("Bill Gates");
+		c8.setTelefone("(11) 4706 0900");
+		c8.setEndereco("Rua dos Programadores N 42");
+		c8.setCpf("420.167.829-1");
+		c8.setId(9);
 		
 		a1.setGenero("Feminino");
 		a1.setId(29);
@@ -708,16 +770,22 @@ public class Controller {
 		TodosAnimais.add(a2);
 		TodosAnimais.add(a3);
 
-		ListaClientes.add(c);
+		ListaClientes.add(c8);
 		
-		c.setAnimais(list);
-		c = new Cliente();
+		c8.setAnimais(list);
+		Cliente c9 = new Cliente();
 		list = new ArrayList <Animais>();
+		a1 = new Animais();
+		a2 = new Animais();
+		a3 = new Animais();
+		a4 = new Animais();
+		a5 = new Animais();
 		
-		c.setNome("Sheldon Cooper");
-		c.setTelefone("1 4242-0001");
-		c.setEndereco("Rua das Cordas N 42");
-		c.setCpf("980.192.124-x");
+		c9.setNome("Sheldon Cooper");
+		c9.setTelefone("1 4242-0001");
+		c9.setEndereco("Rua das Cordas N 42");
+		c9.setCpf("980.192.124-x");
+		c9.setId(10);
 		
 		a1.setGenero("Feminino");
 		a1.setId(32);
@@ -742,10 +810,123 @@ public class Controller {
 		TodosAnimais.add(a2);
 		TodosAnimais.add(a3);
 
-		c.setAnimais(list);
+		c9.setAnimais(list);
 		
-		ListaClientes.add(c);
+		ListaClientes.add(c9);
 		
+		// Gerando lista de Profissionais
+		
+		p.setNome("Jarvis");
+		p.setEndereco("Avenida Tone Estarqui N 01");
+		p.setCpf("345.190.591.1");
+		p.setTelefone("12 99282-5789");
+		p.setId(1);
+		
+		ListaProfissionais.add(p);
+		
+		Profissional p1 = new Profissional();
+		
+		p1.setNome("Alfred");
+		p1.setEndereco("Rua dos Mordomos N 31");
+		p1.setCpf("67.581.583-60");
+		p1.setTelefone("12 99745-9801");
+		p1.setId(2);
+		
+		ListaProfissionais.add(p1);
+		
+		Profissional p2 = new Profissional();
+		
+		p2.setNome("Nick Fury");
+		p2.setEndereco("Rua dos Vingadores N 911");
+		p2.setCpf("120.691.869-x");
+		p2.setTelefone("12 98819-1526");
+		p2.setId(3);
+		
+		ListaProfissionais.add(p2);
+		
+		Profissional p3 = new Profissional();
+		
+		p3.setNome("Renato Junkeira");
+		p3.setEndereco("Rua dos Ricos N 150");
+		p3.setCpf("388.213.908-02");
+		p3.setTelefone("12 98100-4199");
+		p3.setId(4);
+		
+		ListaProfissionais.add(p3);
+		
+		Profissional p4 = new Profissional();
+		
+		p4.setNome("Cledemilso Ferreira");
+		p4.setEndereco("Rua Anápolis n 20");
+		p4.setCpf("46.182.918-1");
+		p4.setTelefone("12 98819-4016");
+		p4.setId(5);
+		
+		ListaProfissionais.add(p4);
+		
+	
+		//Gerando lista de Atendimentos
+		;
+		
+		Atendimento at = new Atendimento(c, c.getAnimais().get(1),  p2);
+		at.setId(1);
+		ListaAtendimentos.add(at);
+		
+		Atendimento at1 = new Atendimento(c5, c5.getAnimais().get(0),  p);
+		at1.setId(2);
+		ListaAtendimentos.add(at1);
+		
+		Atendimento at2 = new Atendimento(c8, c8.getAnimais().get(1),  p3);
+		at2.setId(3);
+		ListaAtendimentos.add(at2);
+		
+		Atendimento at3 = new Atendimento(c9, c9.getAnimais().get(0),  p1);
+		at3.setId(4);
+		ListaAtendimentos.add(at3);
+		
+		Atendimento at4 = new Atendimento(c2, c2.getAnimais().get(1),  p4);
+		at4.setId(5);
+		ListaAtendimentos.add(at4);
+		
+		Atendimento at5 = new Atendimento(c7, c7.getAnimais().get(2),  p1);
+		at5	.setId(6);
+		ListaAtendimentos.add(at5);
+	}
+	
+	public String RankingGenero(ArrayList<Animais> lista) {
+		int contF = 0, contM = 0;
+		String resp;
+		
+		for (Animais animal : lista) {
+			if(animal.getGenero().equals("Feminino")) {
+				contF ++;
+			}
+			else {
+				contM ++;
+			}
+		}
+		if(contF<contM)
+			resp="Masculino";
+		else
+			resp="Feminino";
+		return resp;
+		
+	}
+	
+	public String RankingRaca(ArrayList<Animais> lista) {
+		Map<String,Integer> animais = new HashMap<String,Integer>();		
+		
+		for (Animais animal : lista) {
+			if(animais.containsKey(animal.getRaca())) {
+				animais.replace(animal.getRaca(), animais.get(animal.getRaca()+1));
+			}
+			else {
+				animais.put(animal.getRaca(), 0);	
+			}
+		}
+		
+		
+		return null;
 		
 	}
 }
